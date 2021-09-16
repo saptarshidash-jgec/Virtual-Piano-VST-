@@ -1,29 +1,23 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 body {
   background-color: #7facda;
   margin: 0;
-  min-height: 100vh;
+  min-height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
-} 
-
-.piano {
-  display: flex;
 }
 
 .key {
-  height: calc(var(--width) * 4);
+  height: calc(var(--width) * 5);
   width: var(--width);
+
 }
 
 .white {
   --width: 100px;
   background-color: white;
   border: 1px solid #333;
+  color: white;
 }
 
 .white.active {
@@ -36,6 +30,8 @@ body {
   margin-left: calc(var(--width) / -2);
   margin-right: calc(var(--width) / -2);
   z-index: 2;
+  position:static;
+  margin-top: -250px;
 }
 
 .black.active {
