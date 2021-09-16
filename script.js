@@ -1,30 +1,70 @@
-const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
-const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j']
-
-const keys = document.querySelectorAll('.key')
-const whiteKeys = document.querySelectorAll('.key.white')
-const blackKeys = document.querySelectorAll('.key.black')
-
-keys.forEach(key => {
-  key.addEventListener('click', () => playNote(key))
-})
-
-document.addEventListener('keydown', e => {
-  if (e.repeat) return
-  const key = e.key
-  const whiteKeyIndex = WHITE_KEYS.indexOf(key)
-  const blackKeyIndex = BLACK_KEYS.indexOf(key)
-
-  if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex])
-  if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex])
-})
-
-function playNote(key) {
-  const noteAudio = document.getElementById(key.dataset.note)
-  noteAudio.currentTime = 0
-  noteAudio.play()
-  key.classList.add('active')
-  noteAudio.addEventListener('ended', () => {
-    key.classList.remove('active')
-  })
+var no = document.querySelectorAll("div").length;
+// alert(no);
+for(var i=0;i<no;i++)
+{
+  document.querySelectorAll("div")[i].addEventListener("click",function(){
+    var ss=this.innerHTML;
+    console.log(ss);
+    playy(ss);
+  });
+}
+document.addEventListener("keypress",function(event){
+  console.log(event.key);
+playy(event.key);
+});
+function playy(xyz)
+{
+  switch (xyz) {
+    case "z":
+      // alert("HI");
+      var C = new Audio("notes/C.mp3");
+      C.play();
+      break;
+    case "x":
+      var D = new Audio("notes/D.mp3");
+      D.play();
+      break;
+    case "c":
+      var E = new Audio("notes/E.mp3");
+      E.play();
+      break;
+    case "v":
+      var F = new Audio("notes/F.mp3");
+      F.play();
+      break;
+    case "b":
+      var G = new Audio("notes/G.mp3");
+      G.play();
+      break;
+    case "n":
+      var A = new Audio("notes/A.mp3");
+      A.play();
+      break;
+    case "m":
+      var B = new Audio("notes/B.mp3");
+      B.play();
+      break;
+    case "s":
+        var Db = new Audio("notes/Db.mp3");
+        Db.play();
+        break;
+      case "d":
+        var Eb = new Audio("notes/Eb.mp3");
+        Eb.play();
+        break;
+      case "g":
+        var Gb = new Audio("notes/Gb.mp3");
+        Gb.play();
+        break;
+      case "h":
+        var Ab = new Audio("notes/Ab.mp3");
+        Ab.play();
+        break;
+      case "j":
+        var Bb = new Audio("notes/Bb.mp3");
+        Bb.play();
+        break;
+    default:
+      console.log("You Pressed Something else");
+      }
 }
